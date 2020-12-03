@@ -78,7 +78,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 		<div id="colorlib-main">
 
-            <section class="colorlib-work" data-section="personal" id="work">
+            <section class="colorlib-work" data-section="personal" id="work" style="padding-bottom: 0px;">
                 <div class="colorlib-narrow-content">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
@@ -613,14 +613,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			x=1;
 			$('#work .work-row:lt('+x+')').show();
 
-			$('#loadMore').click(function () {
-				x= (x+1 <= size_li) ? x+1 : size_li;
-				$('#work .work-row:lt('+x+')').show();
-				if(x == size_li){
-					$('#loadMore').hide();
-				}
-			});
+			// $('#loadMore').click(function () {
+			// 	x= (x+1 <= size_li) ? x+1 : size_li;
+			// 	$('#work .work-row:lt('+x+')').show();
+			// 	if(x == size_li){
+			// 		$('#loadMore').hide();
+			// 	}
+			// });
+
+            $(window).scroll(function() {
+                if($(window).scrollTop() == $(document).height() - $(window).height()) {
+                    x= (x+1 <= size_li) ? x+1 : size_li;
+                    $('#work .work-row:lt('+x+')').show();
+                    if(x == size_li){
+                        $('#loadMore').hide();
+                    }
+                }
+            });
 		});
+
+        
 	</script>
 
 	</body>
